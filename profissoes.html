@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Profissões - Palsville RP</title>
-
+  <title>Profissões - Palsville RP Brasil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,177 +12,79 @@
 <div class="fundo-blur"></div>
 
 <header class="topo">
-
   <div class="logo-area">
-
-    <img src="logo.png">
-
+    <img src="logo.png" alt="Logo Palsville">
     <span>Palsville RP Brasil</span>
-
   </div>
 
   <nav>
-
     <a href="index.html">Início</a>
     <a href="profissoes.html">Profissões</a>
     <a href="loja.html">Lojinha</a>
     <a href="eventos.html">Eventos</a>
-
+    <a href="https://discord.gg/99YTTmSz" target="_blank">Discord</a>
   </nav>
-
 </header>
 
-<section class="pagina-profissao">
+<section class="job-page">
 
-  <h1>
-    👑 Guia de Profissões
-  </h1>
+  <div class="job-title">
+    <h1>👑 Guia de Profissões</h1>
+    <p>Conheça cada profissão, sua evolução e função dentro do Palsville RP Brasil.</p>
+  </div>
 
-  <p>
-    Conheça todas as profissões
-    e evoluções do reino.
-  </p>
+  <div class="job-carousel">
 
-  <!-- CARROSSEL -->
+    <button class="job-btn" onclick="voltarProfissao()">❮</button>
 
-  <div class="profissao-carrossel">
-
-    <!-- BOTÃO -->
-
-    <button onclick="voltarProfissao()">
-
-      ❮
-
-    </button>
-
-    <!-- PROFISSÃO 1 -->
-
-    <div class="profissao-slide ativo-profissao">
-
-      <img src="ferreiro.png">
-
-      <h2>
-        Ferreiro ➜ Especialista
-      </h2>
-
-      <p>
-
-        Produção de armas,
-        ferramentas e equipamentos.
-
-      </p>
-
+    <div class="job-slide job-active">
+      <img src="ferreiro.png" alt="Ferreiro">
+      <h2>Ferreiro ➜ Especialista</h2>
+      <p>Produção de armas, ferramentas, equipamentos e recursos ligados à evolução técnica do servidor.</p>
     </div>
 
-    <!-- PROFISSÃO 2 -->
-
-    <div class="profissao-slide">
-
-      <img src="fazendeiro.png">
-
-      <h2>
-        Fazendeiro ➜ Alquimista
-      </h2>
-
-      <p>
-
-        Produção agrícola,
-        ingredientes e alquimia.
-
-      </p>
-
+    <div class="job-slide">
+      <img src="fazendeiro.png" alt="Fazendeiro">
+      <h2>Fazendeiro ➜ Alquimista</h2>
+      <p>Produção agrícola, alimentos, ingredientes e evolução para sistemas de alquimia.</p>
     </div>
 
-    <!-- PROFISSÃO 3 -->
-
-    <div class="profissao-slide">
-
-      <img src="explorador.png">
-
-      <h2>
-        Explorador ➜ Mercenário
-      </h2>
-
-      <p>
-
-        Exploração,
-        combate e missões perigosas.
-
-      </p>
-
+    <div class="job-slide">
+      <img src="explorador.png" alt="Explorador">
+      <h2>Explorador ➜ Mercenário</h2>
+      <p>Exploração, missões perigosas, coleta de informações e serviços de risco dentro do RP.</p>
     </div>
 
-    <!-- PROFISSÃO 4 -->
-
-    <div class="profissao-slide">
-
-      <img src="coletor.png">
-
-      <h2>
-        Coletor ➜ Artesão
-      </h2>
-
-      <p>
-
-        Coleta de recursos
-        e fabricação artesanal.
-
-      </p>
-
+    <div class="job-slide">
+      <img src="coletor.png" alt="Coletor">
+      <h2>Coletor ➜ Artesão</h2>
+      <p>Coleta de recursos naturais e evolução para criação artesanal de itens úteis ao reino.</p>
     </div>
 
-    <!-- PROFISSÃO 5 -->
-
-    <div class="profissao-slide">
-
-      <img src="criador-pal.png">
-
-      <h2>
-        Criador de Pal ➜ Aquacultor
-      </h2>
-
-      <p>
-
-        Controle,
-        cuidado e criação de Pals.
-
-      </p>
-
+    <div class="job-slide">
+      <img src="criador-pal.png" alt="Criador de Pal">
+      <h2>Criador de Pal ➜ Aquacultor</h2>
+      <p>Criação, cuidado, controle e administração de Pals dentro das regras do servidor.</p>
     </div>
 
-    <!-- PROFISSÃO 6 -->
-
-    <div class="profissao-slide">
-
-      <img src="cientista.png">
-
-      <h2>
-        Cientista ➜ Biocirurgião
-      </h2>
-
-      <p>
-
-        Pesquisas,
-        experimentos e biotecnologia.
-
-      </p>
-
+    <div class="job-slide">
+      <img src="cientista.png" alt="Cientista">
+      <h2>Cientista ➜ Biocirurgião</h2>
+      <p>Pesquisa, tecnologia, experimentos e desenvolvimento avançado dentro do RP.</p>
     </div>
 
-    <!-- BOTÃO -->
-
-    <button onclick="proximaProfissao()">
-
-      ❯
-
-    </button>
+    <button class="job-btn" onclick="proximaProfissao()">❯</button>
 
   </div>
 
 </section>
 
+<footer>
+  <h2>Palsville RP Brasil</h2>
+  <p>© 2026 Palsville RP Brasil</p>
+</footer>
+
 <script src="script.js"></script>
 
 </body>
-
 </html>
