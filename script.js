@@ -1,67 +1,88 @@
 let slideAtual = 0;
-const slides = document.querySelectorAll(".slide");
 
-function mostrarSlide(index) {
-  slides.forEach(slide => slide.classList.remove("ativo"));
+const slides =
+document.querySelectorAll(".slide");
 
-  if (index >= slides.length) {
+function mostrarSlide(index){
+
+  slides.forEach(slide =>
+    slide.classList.remove("ativo")
+  );
+
+  if(index >= slides.length){
     slideAtual = 0;
   }
 
-  if (index < 0) {
+  if(index < 0){
     slideAtual = slides.length - 1;
   }
 
-  if (slides.length > 0) {
-    slides[slideAtual].classList.add("ativo");
-  }
+  slides[slideAtual]
+    .classList.add("ativo");
 }
 
-function proximoSlide() {
+function proximoSlide(){
   slideAtual++;
   mostrarSlide(slideAtual);
 }
 
-function voltarSlide() {
+function voltarSlide(){
   slideAtual--;
   mostrarSlide(slideAtual);
 }
 
-if (slides.length > 0) {
-  setInterval(proximoSlide, 5000);
-}
+setInterval(() => {
+  proximoSlide();
+}, 5000);
 
-const SERVER_ID = "38944014";
+/* ========================= */
+/* STATUS REAL */
+/* ========================= */
 
-async function carregarServidor() {
-  try {
-    const resposta = await fetch(`https://api.battlemetrics.com/servers/${SERVER_ID}`);
-    const dados = await resposta.json();
-    const atributos = dados.data.attributes;
+async function carregarServidor(){
 
-    const jogadores = atributos.players;
-    const maxJogadores = atributos.maxPlayers;
-    const status = atributos.status;
+  try{
 
-    const playerBox = document.getElementById("playersOnline");
-    const statusBox = document.querySelector(".online");
+    const resposta =
+    await fetch(
+      "http://localhost:3000/server-status"
+    );
 
-    if (playerBox) {
-      playerBox.innerHTML = `${jogadores}/${maxJogadores} Online`;
+    const dados =
+    await resposta.json();
+
+    const playerBox =
+    document.getElementById("playersOnline");
+
+    const statusBox =
+    document.querySelector(".online");
+
+    if(playerBox){
+
+      playerBox.innerHTML =
+      `${dados.players}/${dados.maxPlayers} Online`;
+
     }
 
-    if (statusBox) {
-      statusBox.innerHTML = status === "online" ? "🟢 ONLINE" : "🔴 OFFLINE";
+    if(statusBox){
+
+      statusBox.innerHTML =
+      dados.status === "online"
+      ? "🟢 ONLINE"
+      : "🔴 OFFLINE";
+
     }
 
-  } catch (erro) {
-    const playerBox = document.getElementById("playersOnline");
-    const statusBox = document.querySelector(".online");
+  }catch(erro){
 
-    if (playerBox) playerBox.innerHTML = "Indisponível";
-    if (statusBox) statusBox.innerHTML = "⚠️ ERRO";
+    console.log(erro);
+
   }
+
 }
 
 carregarServidor();
-setInterval(carregarServidor, 30000);
+
+setInterval(() => {
+  carregarServidor();
+}, 10000);
