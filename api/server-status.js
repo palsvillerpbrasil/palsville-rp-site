@@ -1,23 +1,33 @@
 export default async function handler(req, res) {
   try {
-    const resposta = await fetch("http://37.148.135.48:3000/server-status");
+    const respostaServidor = await fetch("http://37.148.135.48:3000/server-status");
 
-    if (!resposta.ok) {
+    if (!respostaServidor.ok) {
       throw new Error("API do servidor offline");
     }
 
-    const dados = await resposta.json();
+    const dadosServidor = await respostaServidor.json();
 
-    res.status(200).json(dados);
+    const respostaBattle = await fetch("https://api.battlemetrics.com/servers/38944014");
+    const dadosBattle = await respostaBattle.json();
+
+    const rank = dadosBattle?.data?.attributes?.rank || null;
+
+    res.status(200).json({
+      status: dadosServidor.status,
+      playersOnline: dadosServidor.playersOnline,
+      maxPlayers: dadosServidor.maxPlayers,
+      ping: dadosServidor.ping,
+      rank: rank
+    });
 
   } catch (erro) {
     res.status(500).json({
       status: "offline",
       playersOnline: 0,
       maxPlayers: 20,
-      rank: null,
       ping: 0,
-      players: []
+      rank: null
     });
   }
 }
