@@ -1,29 +1,326 @@
-/* PROFISSÕES */
-
-.pagina-profissao{
-  padding:50px 6%;
-  text-align:center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.pagina-profissao h1{
+body{
+  background:#070311;
+  color:white;
+  font-family:Arial, sans-serif;
+  overflow-x:hidden;
+}
+
+.fundo-blur{
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top left,
+  rgba(124,58,237,0.28),
+  transparent 35%),
+
+  radial-gradient(circle at bottom right,
+  rgba(168,85,247,0.22),
+  transparent 35%);
+
+  z-index:-1;
+}
+
+/* TOPO */
+
+.topo{
+  background:rgba(10,5,20,0.96);
+
+  border-bottom:1px solid #7c3aed;
+
+  padding:14px 6%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  position:sticky;
+
+  top:0;
+
+  z-index:10;
+
+  box-shadow:0 0 25px rgba(124,58,237,0.35);
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-area img{
+  width:70px;
+}
+
+.logo-area span{
   color:#d8b4fe;
-  font-size:48px;
-  margin-bottom:12px;
+  font-size:22px;
+  font-weight:bold;
 }
 
-.pagina-profissao p{
-  color:#d1d5db;
-  margin-bottom:35px;
+nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
 }
 
-.profissao-carrossel{
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:#c084fc;
+}
+
+/* HERO */
+
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+
+  align-items:center;
+
+  gap:35px;
+
+  padding:55px 7% 35px;
+}
+
+.tag-topo{
+  display:inline-block;
+
+  background:rgba(124,58,237,0.18);
+
+  border:1px solid #7c3aed;
+
+  color:#d8b4fe;
+
+  padding:9px 16px;
+
+  border-radius:999px;
+
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:54px;
+
+  color:#c084fc;
+
+  text-shadow:0 0 20px rgba(192,132,252,0.65);
+
+  margin-bottom:18px;
+}
+
+.hero p{
+  font-size:20px;
+
+  line-height:1.6;
+
+  color:#e5e7eb;
+
+  max-width:720px;
+}
+
+.hero-logo{
+  display:flex;
+  justify-content:center;
+}
+
+.hero-logo img{
+  width:100%;
+  max-width:390px;
+
+  filter:
+  drop-shadow(0 0 35px rgba(168,85,247,0.75));
+}
+
+/* BOTÕES */
+
+.botoes{
+  display:flex;
+  gap:16px;
+
+  margin-top:28px;
+
+  flex-wrap:wrap;
+}
+
+.botoes a,
+.botao-card,
+.atalho a{
+  background:
+  linear-gradient(135deg,#7c3aed,#a855f7);
+
+  color:white;
+
+  padding:13px 22px;
+
+  border-radius:13px;
+
+  text-decoration:none;
+
+  font-weight:bold;
+
+  display:inline-block;
+
+  box-shadow:
+  0 0 18px rgba(168,85,247,0.55);
+
+  transition:0.3s;
+}
+
+.botoes a:hover,
+.botao-card:hover,
+.atalho a:hover{
+  transform:scale(1.04);
+}
+
+.secundario{
+  background:transparent !important;
+
+  border:2px solid #a855f7;
+
+  color:#d8b4fe !important;
+
+  box-shadow:none !important;
+}
+
+/* PAINEL SERVIDOR */
+
+.painel-servidor{
+  margin:20px 6% 25px;
+
   background:rgba(15,10,35,0.95);
 
   border:1px solid #7c3aed;
 
-  border-radius:24px;
+  border-radius:22px;
 
-  padding:30px;
+  padding:26px;
+
+  box-shadow:0 0 25px rgba(124,58,237,0.35);
+}
+
+.painel-servidor h2{
+  color:#d8b4fe;
+
+  margin-bottom:18px;
+
+  text-align:center;
+}
+
+.server-grid{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:18px;
+}
+
+.server-box{
+  background:rgba(124,58,237,0.13);
+
+  border:1px solid rgba(139,92,246,0.45);
+
+  padding:18px;
+
+  border-radius:16px;
+
+  text-align:center;
+}
+
+.server-box h3{
+  color:#c084fc;
+  margin-bottom:8px;
+}
+
+.server-box p{
+  color:#f3f4f6;
+  font-weight:bold;
+}
+
+.online{
+  color:#22c55e !important;
+}
+
+/* ATALHOS */
+
+.atalhos{
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:22px;
+
+  padding:20px 6% 35px;
+}
+
+.atalho{
+  background:rgba(15,10,35,0.92);
+
+  border:1px solid #7c3aed;
+
+  border-radius:20px;
+
+  padding:26px;
+
+  box-shadow:0 0 20px rgba(124,58,237,0.25);
+}
+
+.atalho h3{
+  color:#d8b4fe;
+
+  font-size:24px;
+
+  margin-bottom:10px;
+}
+
+.atalho p{
+  color:#e5e7eb;
+
+  line-height:1.5;
+
+  margin-bottom:18px;
+}
+
+/* CARROSSEL */
+
+.carrossel-area{
+  padding:30px 6%;
+}
+
+.titulo-secao{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.titulo-secao h2{
+  color:#d8b4fe;
+  font-size:34px;
+}
+
+.titulo-secao span{
+  color:#9ca3af;
+}
+
+.carrossel{
+  background:rgba(15,10,35,0.95);
+
+  border:1px solid #7c3aed;
+
+  border-radius:22px;
+
+  padding:28px;
 
   display:flex;
 
@@ -31,85 +328,350 @@
 
   justify-content:space-between;
 
-  box-shadow:0 0 25px rgba(124,58,237,0.35);
+  box-shadow:0 0 22px rgba(124,58,237,0.32);
 }
 
-.profissao-carrossel button{
+.carrossel button{
   background:#7c3aed;
 
   border:none;
 
   color:white;
 
-  width:55px;
-  height:55px;
+  width:48px;
+  height:48px;
 
   border-radius:50%;
 
-  font-size:24px;
+  font-size:23px;
 
   cursor:pointer;
 }
 
-.profissao-slide{
+.slide{
   display:none;
 
   text-align:center;
 
-  width:100%;
+  padding:15px;
 }
 
-.ativo-profissao{
+.slide.ativo{
   display:block;
 }
 
-.profissao-slide img{
-  width:100%;
-  max-width:500px;
+.slide h3{
+  color:#d8b4fe;
+
+  font-size:28px;
+
+  margin-bottom:10px;
+}
+
+.slide p{
+  color:#e5e7eb;
+  font-size:18px;
+}
+
+/* CONTEÚDO */
+
+.conteudo{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:24px;
+
+  padding:35px 6% 50px;
+}
+
+.card{
+  background:rgba(15,10,35,0.95);
+
+  border:1px solid #7c3aed;
 
   border-radius:22px;
 
-  border:2px solid rgba(139,92,246,0.5);
+  padding:30px;
 
-  margin-bottom:25px;
-
-  box-shadow:0 0 25px rgba(124,58,237,0.4);
+  box-shadow:0 0 22px rgba(124,58,237,0.25);
 }
 
-.profissao-slide h2{
+.card h2{
   color:#d8b4fe;
 
-  font-size:34px;
+  margin-bottom:18px;
 
-  margin-bottom:15px;
+  font-size:27px;
 }
 
-.profissao-slide p{
+.card p,
+.card li{
   color:#e5e7eb;
 
-  font-size:19px;
+  line-height:1.7;
+
+  font-size:17px;
+}
+
+.card ul{
+  padding-left:22px;
+}
+
+.destaque{
+  border-color:#a855f7;
+
+  box-shadow:0 0 28px rgba(168,85,247,0.35);
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+
+  padding:35px;
+
+  background:#05020d;
+
+  border-top:1px solid #7c3aed;
+}
+
+footer h2{
+  color:#d8b4fe;
+
+  margin-bottom:8px;
+}
+
+footer p{
+  color:#9ca3af;
+}
+
+/* PROFISSÕES */
+
+.job-page{
+  padding:45px 6% 70px;
+  text-align:center;
+}
+
+.job-title h1{
+  color:#d8b4fe;
+  font-size:44px;
+  margin-bottom:12px;
+}
+
+.job-title p{
+  color:#d1d5db;
+  font-size:18px;
+  margin-bottom:35px;
+}
+
+.job-carousel{
+  max-width:900px;
+
+  margin:0 auto;
+
+  background:rgba(15,10,35,0.95);
+
+  border:1px solid #7c3aed;
+
+  border-radius:24px;
+
+  padding:28px;
+
+  box-shadow:0 0 28px rgba(124,58,237,0.35);
+
+  display:grid;
+
+  grid-template-columns:60px 1fr 60px;
+
+  align-items:center;
+
+  gap:20px;
+}
+
+.job-btn{
+  width:52px;
+  height:52px;
+
+  border-radius:50%;
+
+  border:none;
+
+  background:
+  linear-gradient(135deg,#7c3aed,#a855f7);
+
+  color:white;
+
+  font-size:25px;
+
+  cursor:pointer;
+
+  box-shadow:0 0 18px rgba(168,85,247,0.45);
+}
+
+.job-slide{
+  display:none;
+  text-align:center;
+}
+
+.job-slide.job-active{
+  display:block;
+}
+
+.job-slide img{
+  width:100%;
+  max-width:520px;
+
+  height:320px;
+
+  object-fit:contain;
+
+  display:block;
+
+  margin:0 auto 22px;
+
+  border-radius:18px;
+
+  background:rgba(8,5,18,0.75);
+
+  border:1px solid rgba(139,92,246,0.45);
+
+  padding:10px;
+}
+
+.job-slide h2{
+  color:#d8b4fe;
+
+  font-size:30px;
+
+  margin-bottom:12px;
+}
+
+.job-slide p{
+  color:#e5e7eb;
+
+  font-size:18px;
+
+  line-height:1.6;
 
   max-width:700px;
 
-  margin:auto;
+  margin:0 auto;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+  .hero{
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+    padding:40px 22px 25px;
+  }
+
+  .hero-logo{
+    order:-1;
+  }
+
+  .hero-logo img{
+    max-width:280px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .botoes{
+    justify-content:center;
+  }
+
+  .server-grid,
+  .atalhos,
+  .conteudo{
+    grid-template-columns:1fr;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .topo{
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .painel-servidor{
+    margin:20px;
+  }
+
 }
 
 @media(max-width:800px){
 
-  .pagina-profissao h1{
+  .job-carousel{
+    grid-template-columns:45px 1fr 45px;
+
+    padding:18px;
+
+    gap:10px;
+  }
+
+  .job-btn{
+    width:42px;
+    height:42px;
+
+    font-size:20px;
+  }
+
+  .job-slide img{
+    height:230px;
+  }
+
+  .job-title h1{
+    font-size:32px;
+  }
+
+  .job-slide h2{
+    font-size:22px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero h1{
     font-size:34px;
   }
 
-  .profissao-slide img{
-    max-width:100%;
+  .logo-area span{
+    font-size:18px;
   }
 
-  .profissao-slide h2{
-    font-size:25px;
-  }
-
-  .profissao-carrossel{
+  .carrossel{
     padding:18px;
+  }
+
+  .carrossel button{
+    width:40px;
+    height:40px;
+
+    font-size:20px;
+  }
+
+  .slide h3{
+    font-size:22px;
+  }
+
+  .card,
+  .atalho,
+  .painel-servidor{
+    padding:22px;
   }
 
 }
