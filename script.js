@@ -1,71 +1,41 @@
-let slideAtual = 0;
-const slides = document.querySelectorAll(".slide");
+/* PROFISSÕES */
 
-function mostrarSlide(index) {
-  slides.forEach(slide => slide.classList.remove("ativo"));
+let profissaoAtual = 0;
 
-  if (index >= slides.length) slideAtual = 0;
-  if (index < 0) slideAtual = slides.length - 1;
+const profissoes =
+document.querySelectorAll(".profissao-slide");
 
-  if (slides.length > 0) {
-    slides[slideAtual].classList.add("ativo");
+function mostrarProfissao(index){
+
+  profissoes.forEach(profissao =>
+    profissao.classList.remove("ativo-profissao")
+  );
+
+  if(index >= profissoes.length){
+    profissaoAtual = 0;
   }
-}
 
-function proximoSlide() {
-  slideAtual++;
-  mostrarSlide(slideAtual);
-}
-
-function voltarSlide() {
-  slideAtual--;
-  mostrarSlide(slideAtual);
-}
-
-if (slides.length > 0) {
-  setInterval(proximoSlide, 5000);
-}
-
-/* STATUS DO SERVIDOR */
-
-async function carregarServidor() {
-  try {
-    const resposta = await fetch("/api/server-status");
-    const dados = await resposta.json();
-
-    const playerBox = document.getElementById("playersOnline");
-    const statusBox = document.querySelector(".online");
-    const rankBox = document.getElementById("serverRank");
-    const pingBox = document.getElementById("serverPing");
-
-    if (playerBox) {
-      playerBox.innerHTML = `${dados.playersOnline}/${dados.maxPlayers} Online`;
-    }
-
-    if (statusBox) {
-      statusBox.innerHTML = dados.status === "online" ? "🟢 ONLINE" : "🔴 OFFLINE";
-    }
-
-    if (rankBox) {
-      rankBox.innerHTML = dados.rank ? `#${dados.rank}` : "Sem colocação";
-    }
-
-    if (pingBox) {
-      pingBox.innerHTML = dados.ping ? `${dados.ping}ms` : "N/A";
-    }
-
-  } catch (erro) {
-    const playerBox = document.getElementById("playersOnline");
-    const statusBox = document.querySelector(".online");
-    const rankBox = document.getElementById("serverRank");
-    const pingBox = document.getElementById("serverPing");
-
-    if (playerBox) playerBox.innerHTML = "Indisponível";
-    if (statusBox) statusBox.innerHTML = "⚠️ ERRO";
-    if (rankBox) rankBox.innerHTML = "Indisponível";
-    if (pingBox) pingBox.innerHTML = "N/A";
+  if(index < 0){
+    profissaoAtual =
+    profissoes.length - 1;
   }
+
+  profissoes[profissaoAtual]
+    .classList.add("ativo-profissao");
 }
 
-carregarServidor();
-setInterval(carregarServidor, 10000);
+function proximaProfissao(){
+
+  profissaoAtual++;
+
+  mostrarProfissao(profissaoAtual);
+
+}
+
+function voltarProfissao(){
+
+  profissaoAtual--;
+
+  mostrarProfissao(profissaoAtual);
+
+}
