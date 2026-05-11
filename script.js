@@ -4,13 +4,8 @@ const slides = document.querySelectorAll(".slide");
 function mostrarSlide(index) {
   slides.forEach(slide => slide.classList.remove("ativo"));
 
-  if (index >= slides.length) {
-    slideAtual = 0;
-  }
-
-  if (index < 0) {
-    slideAtual = slides.length - 1;
-  }
+  if (index >= slides.length) slideAtual = 0;
+  if (index < 0) slideAtual = slides.length - 1;
 
   if (slides.length > 0) {
     slides[slideAtual].classList.add("ativo");
@@ -30,6 +25,8 @@ function voltarSlide() {
 if (slides.length > 0) {
   setInterval(proximoSlide, 5000);
 }
+
+/* STATUS DO SERVIDOR */
 
 async function carregarServidor() {
   try {
