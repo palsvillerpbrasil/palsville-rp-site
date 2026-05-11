@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profissões - Palsville RP Brasil</title>
+
+  <title>Profissões - Palsville RP</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,79 +15,176 @@
 <div class="fundo-blur"></div>
 
 <header class="topo">
+
   <div class="logo-area">
-    <img src="logo.png" alt="Logo Palsville">
+
+    <img src="logo.png">
+
     <span>Palsville RP Brasil</span>
+
   </div>
 
   <nav>
+
     <a href="index.html">Início</a>
     <a href="profissoes.html">Profissões</a>
     <a href="loja.html">Lojinha</a>
     <a href="eventos.html">Eventos</a>
-    <a href="https://discord.gg/99YTTmSz" target="_blank">Discord</a>
+
   </nav>
+
 </header>
 
-<section class="pagina-titulo">
-  <h1>Guia de Profissões</h1>
-  <p>Conheça cada profissão, sua evolução e função dentro do servidor.</p>
+<section class="pagina-profissao">
+
+  <h1>
+    👑 Guia de Profissões
+  </h1>
+
+  <p>
+    Conheça todas as profissões
+    e evoluções do reino.
+  </p>
+
+  <!-- CARROSSEL -->
+
+  <div class="profissao-carrossel">
+
+    <!-- BOTÃO -->
+
+    <button onclick="voltarProfissao()">
+
+      ❮
+
+    </button>
+
+    <!-- PROFISSÃO 1 -->
+
+    <div class="profissao-slide ativo-profissao">
+
+      <img src="ferreiro.png">
+
+      <h2>
+        Ferreiro ➜ Especialista
+      </h2>
+
+      <p>
+
+        Produção de armas,
+        ferramentas e equipamentos.
+
+      </p>
+
+    </div>
+
+    <!-- PROFISSÃO 2 -->
+
+    <div class="profissao-slide">
+
+      <img src="fazendeiro.png">
+
+      <h2>
+        Fazendeiro ➜ Alquimista
+      </h2>
+
+      <p>
+
+        Produção agrícola,
+        ingredientes e alquimia.
+
+      </p>
+
+    </div>
+
+    <!-- PROFISSÃO 3 -->
+
+    <div class="profissao-slide">
+
+      <img src="explorador.png">
+
+      <h2>
+        Explorador ➜ Mercenário
+      </h2>
+
+      <p>
+
+        Exploração,
+        combate e missões perigosas.
+
+      </p>
+
+    </div>
+
+    <!-- PROFISSÃO 4 -->
+
+    <div class="profissao-slide">
+
+      <img src="coletor.png">
+
+      <h2>
+        Coletor ➜ Artesão
+      </h2>
+
+      <p>
+
+        Coleta de recursos
+        e fabricação artesanal.
+
+      </p>
+
+    </div>
+
+    <!-- PROFISSÃO 5 -->
+
+    <div class="profissao-slide">
+
+      <img src="criador-pal.png">
+
+      <h2>
+        Criador de Pal ➜ Aquacultor
+      </h2>
+
+      <p>
+
+        Controle,
+        cuidado e criação de Pals.
+
+      </p>
+
+    </div>
+
+    <!-- PROFISSÃO 6 -->
+
+    <div class="profissao-slide">
+
+      <img src="cientista.png">
+
+      <h2>
+        Cientista ➜ Biocirurgião
+      </h2>
+
+      <p>
+
+        Pesquisas,
+        experimentos e biotecnologia.
+
+      </p>
+
+    </div>
+
+    <!-- BOTÃO -->
+
+    <button onclick="proximaProfissao()">
+
+      ❯
+
+    </button>
+
+  </div>
+
 </section>
 
-<main class="guia-profissoes">
-
-  <section class="profissao-card">
-    <img src="ferreiro.png" alt="Ferreiro">
-    <h2>Ferreiro ➜ Especialista</h2>
-    <p>Responsável por produção, melhorias e itens ligados à criação e manutenção de equipamentos.</p>
-  </section>
-
-  <section class="profissao-card">
-    <img src="fazendeiro.png" alt="Fazendeiro">
-    <h2>Fazendeiro ➜ Alquimista</h2>
-    <p>Trabalha com cultivo, alimentos, recursos naturais e evolução para produção alquímica.</p>
-  </section>
-
-  <section class="profissao-card">
-    <img src="explorador.png" alt="Explorador">
-    <h2>Explorador ➜ Mercenário</h2>
-    <p>Focado em exploração, missões, coleta de informações, combate e serviços de risco.</p>
-  </section>
-
-  <section class="profissao-card">
-    <img src="coletor.png" alt="Coletor">
-    <h2>Coletor ➜ Artesão</h2>
-    <p>Coleta recursos do mundo e evolui para produção artesanal e itens de utilidade.</p>
-  </section>
-
-  <section class="profissao-card">
-    <img src="criador-pal.png" alt="Criador de Pal">
-    <h2>Criador de Pal ➜ Aquacultor</h2>
-    <p>Especialista no cuidado, criação, controle e uso estratégico dos Pals dentro do RP.</p>
-  </section>
-
-  <section class="profissao-card">
-    <img src="cientista.png" alt="Cientista">
-    <h2>Cientista ➜ Biocirurgião</h2>
-    <p>Atua com pesquisa, tecnologia, experimentos e desenvolvimento avançado dentro do servidor.</p>
-  </section>
-
-  <section class="card">
-    <h2>🏛️ Cargos do Servidor</h2>
-    <ul>
-      <li>Bancário</li>
-      <li>Economista</li>
-      <li>Inspetor de Pal</li>
-      <li>Supervisor de Controle de Pal</li>
-    </ul>
-  </section>
-
-</main>
-
-<footer>
-  <h2>Palsville RP Brasil</h2>
-  <p>© 2026 Palsville RP Brasil</p>
-</footer>
+<script src="script.js"></script>
 
 </body>
 
