@@ -20,6 +20,8 @@ body{
   z-index:-1;
 }
 
+/* TOPO */
+
 .topo{
   background:rgba(10,5,20,0.96);
   border-bottom:1px solid #7c3aed;
@@ -65,6 +67,8 @@ nav a:hover{
   color:#c084fc;
 }
 
+/* HERO */
+
 .hero{
   display:grid;
   grid-template-columns:1.2fr 0.8fr;
@@ -108,6 +112,8 @@ nav a:hover{
   filter:drop-shadow(0 0 35px rgba(168,85,247,0.75));
 }
 
+/* BOTÕES */
+
 .botoes{
   display:flex;
   gap:16px;
@@ -141,6 +147,8 @@ nav a:hover{
   color:#d8b4fe !important;
   box-shadow:none !important;
 }
+
+/* PAINEL SERVIDOR */
 
 .painel-servidor{
   margin:20px 6% 25px;
@@ -185,6 +193,8 @@ nav a:hover{
   color:#22c55e !important;
 }
 
+/* ATALHOS */
+
 .atalhos{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -211,6 +221,8 @@ nav a:hover{
   line-height:1.5;
   margin-bottom:18px;
 }
+
+/* CARROSSEL */
 
 .carrossel-area{
   padding:30px 6%;
@@ -273,6 +285,8 @@ nav a:hover{
   font-size:18px;
 }
 
+/* CONTEÚDO */
+
 .conteudo{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -310,6 +324,8 @@ nav a:hover{
   box-shadow:0 0 28px rgba(168,85,247,0.35);
 }
 
+/* FOOTER */
+
 footer{
   text-align:center;
   padding:35px;
@@ -326,7 +342,10 @@ footer p{
   color:#9ca3af;
 }
 
+/* RESPONSIVO */
+
 @media(max-width:1000px){
+
   .hero{
     grid-template-columns:1fr;
     text-align:center;
@@ -371,9 +390,11 @@ footer p{
   .painel-servidor{
     margin:20px;
   }
+
 }
 
 @media(max-width:600px){
+
   .hero h1{
     font-size:34px;
   }
@@ -401,4 +422,5 @@ footer p{
   .painel-servidor{
     padding:22px;
   }
+
 }
