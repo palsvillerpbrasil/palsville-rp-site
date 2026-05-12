@@ -1,264 +1,74 @@
-/* ========================= */
-/* CARROSSEL HOME */
-/* ========================= */
-
 let slideAtual = 0;
-
-const slides =
-document.querySelectorAll(".slide");
+const slides = document.querySelectorAll(".slide");
 
 function mostrarSlide(index){
-
-  slides.forEach(slide =>
-    slide.classList.remove("ativo")
-  );
+  slides.forEach(slide => slide.classList.remove("ativo"));
 
   if(index >= slides.length){
     slideAtual = 0;
   }
 
   if(index < 0){
-    slideAtual =
-    slides.length - 1;
+    slideAtual = slides.length - 1;
   }
 
   if(slides.length > 0){
-
-    slides[slideAtual]
-    .classList.add("ativo");
-
+    slides[slideAtual].classList.add("ativo");
   }
-
 }
 
 function proximoSlide(){
-
   slideAtual++;
-
   mostrarSlide(slideAtual);
-
 }
 
 function voltarSlide(){
-
   slideAtual--;
-
   mostrarSlide(slideAtual);
-
 }
 
 if(slides.length > 0){
-
-  setInterval(() => {
-
-    proximoSlide();
-
-  }, 5000);
-
+  setInterval(proximoSlide, 5000);
 }
 
-/* ========================= */
-/* STATUS SERVIDOR */
-/* ========================= */
-
 async function carregarServidor(){
-
   try{
+    const resposta = await fetch("/api/server-status");
+    const dados = await resposta.json();
 
-    const resposta =
-    await fetch("/api/server-status");
-
-    const dados =
-    await resposta.json();
-
-    const playerBox =
-    document.getElementById("playersOnline");
-
-    const statusBox =
-    document.querySelector(".online");
-
-    const rankBox =
-    document.getElementById("serverRank");
-
-    const pingBox =
-    document.getElementById("serverPing");
+    const playerBox = document.getElementById("playersOnline");
+    const statusBox = document.querySelector(".online");
+    const rankBox = document.getElementById("serverRank");
+    const pingBox = document.getElementById("serverPing");
 
     if(playerBox){
-
-      playerBox.innerHTML =
-      `${dados.playersOnline}/${dados.maxPlayers} Online`;
-
+      playerBox.innerHTML = `${dados.playersOnline}/${dados.maxPlayers} Online`;
     }
 
     if(statusBox){
-
-      statusBox.innerHTML =
-      dados.status === "online"
-      ? "🟢 ONLINE"
-      : "🔴 OFFLINE";
-
+      statusBox.innerHTML = dados.status === "online" ? "🟢 ONLINE" : "🔴 OFFLINE";
     }
 
     if(rankBox){
-
-      rankBox.innerHTML =
-      dados.rank
-      ? `#${dados.rank}`
-      : "Sem colocação";
-
+      rankBox.innerHTML = dados.rank ? `#${dados.rank}` : "Sem colocação";
     }
 
     if(pingBox){
-
-      pingBox.innerHTML =
-      dados.ping
-      ? `${dados.ping}ms`
-      : "N/A";
-
+      pingBox.innerHTML = dados.ping ? `${dados.ping}ms` : "N/A";
     }
 
   }catch(erro){
+    const playerBox = document.getElementById("playersOnline");
+    const statusBox = document.querySelector(".online");
+    const rankBox = document.getElementById("serverRank");
+    const pingBox = document.getElementById("serverPing");
 
-    const playerBox =
-    document.getElementById("playersOnline");
-
-    const statusBox =
-    document.querySelector(".online");
-
-    const rankBox =
-    document.getElementById("serverRank");
-
-    const pingBox =
-    document.getElementById("serverPing");
-
-    if(playerBox)
-      playerBox.innerHTML =
-      "Indisponível";
-
-    if(statusBox)
-      statusBox.innerHTML =
-      "⚠️ ERRO";
-
-    if(rankBox)
-      rankBox.innerHTML =
-      "Indisponível";
-
-    if(pingBox)
-      pingBox.innerHTML =
-      "N/A";
-
+    if(playerBox) playerBox.innerHTML = "Indisponível";
+    if(statusBox) statusBox.innerHTML = "⚠️ ERRO";
+    if(rankBox) rankBox.innerHTML = "Indisponível";
+    if(pingBox) pingBox.innerHTML = "N/A";
   }
-
 }
 
 carregarServidor();
-
-setInterval(() => {
-
-  carregarServidor();
-
-}, 10000);
-
-/* ========================= */
-/* CARROSSEL PROFISSÕES */
-/* ========================= */
-
-let profissaoAtual = 0;
-
-const profissoesSlides =
-document.querySelectorAll(".job-slide");
-
-function mostrarProfissao(index){
-
-  if(profissoesSlides.length === 0)
-    return;
-
-  profissoesSlides.forEach(slide => {
-
-    slide.classList.remove("job-active");
-
-  });
-
-  if(index >= profissoesSlides.length){
-
-    profissaoAtual = 0;
-
-  }
-
-  if(index < 0){
-
-    profissaoAtual =
-    profissoesSlides.length - 1;
-
-  }
-
-  profissoesSlides[profissaoAtual]
-  .classList.add("job-active");
-
-}
-
-function proximaProfissao(){
-
-  profissaoAtual++;
-
-  mostrarProfissao(profissaoAtual);
-
-}
-
-function voltarProfissao(){
-
-  profissaoAtual--;
-
-  mostrarProfissao(profissaoAtual);
-
-}
-// FIREBASE
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-    getFirestore,
-    collection,
-    getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-// CONFIG FIREBASE
-const firebaseConfig = {
-    apiKey: "AIzaSyByM0TF6UZevEf8Xk0swZsRJZp6JF-UaKk",
-    authDomain: "palsville-rp.firebaseapp.com",
-    projectId: "palsville-rp",
-    storageBucket: "palsville-rp.appspot.com",
-    messagingSenderId: "955740604256",
-    appId: "1:955740604256:web:f4735d79c66f5a66d68005"
-};
-
-// INICIAR FIREBASE
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// PEGAR EVENTOS
-async function carregarEventos() {
-
-    const container = document.getElementById("eventos-container");
-
-    const querySnapshot = await getDocs(collection(db, "eventos"));
-
-    querySnapshot.forEach((doc) => {
-
-        const evento = doc.data();
-
-        container.innerHTML += `
-            <div class="evento-card">
-
-                <img src="${evento.imagem}" alt="${evento.titulo}">
-
-                <div class="evento-info">
-                    <h3>${evento.titulo}</h3>
-                    <p>${evento.descricao}</p>
-                </div>
-
-            </div>
-        `;
-    });
-}
-
-carregarEventos();
+setInterval(carregarServidor, 10000);
