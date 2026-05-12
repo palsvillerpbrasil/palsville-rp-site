@@ -212,3 +212,53 @@ function voltarProfissao(){
   mostrarProfissao(profissaoAtual);
 
 }
+// FIREBASE
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// CONFIG FIREBASE
+const firebaseConfig = {
+    apiKey: "SUA_API_KEY",
+    authDomain: "palsville-rp.firebaseapp.com",
+    projectId: "palsville-rp",
+    storageBucket: "palsville-rp.appspot.com",
+    messagingSenderId: "955740604256",
+    appId: "1:955740604256:web:f4735d79c66f5a66d68005"
+};
+
+// INICIAR FIREBASE
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// PEGAR EVENTOS
+async function carregarEventos() {
+
+    const container = document.getElementById("eventos-container");
+
+    const querySnapshot = await getDocs(collection(db, "eventos"));
+
+    querySnapshot.forEach((doc) => {
+
+        const evento = doc.data();
+
+        container.innerHTML += `
+            <div class="evento-card">
+
+                <img src="${evento.imagem}" alt="${evento.titulo}">
+
+                <div class="evento-info">
+                    <h3>${evento.titulo}</h3>
+                    <p>${evento.descricao}</p>
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+carregarEventos();
