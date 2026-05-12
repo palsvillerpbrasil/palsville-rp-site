@@ -223,7 +223,7 @@ import {
 
 // CONFIG FIREBASE
 const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
+    apiKey: "AIzaSyByM0TF6UZevEf8Xk0swZsRJZp6JF-UaKk",
     authDomain: "palsville-rp.firebaseapp.com",
     projectId: "palsville-rp",
     storageBucket: "palsville-rp.appspot.com",
