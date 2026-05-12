@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel ADM - Palsville RP</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
 
+<body>
+
+<div class="admin-container">
+
+  <aside class="admin-menu">
+    <h1>Palsville ADM</h1>
+    <p>Painel de controle</p>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#noticias">Notícias</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#loja">Lojinha</a>
+      <a href="index.html">Ver site</a>
+    </nav>
+  </aside>
+
+  <main class="admin-content">
+
+    <section id="inicio" class="admin-card">
+      <h2>Configurações da Página Inicial</h2>
+
+      <label>Título do site</label>
+      <input type="text" id="titulo">
+
+      <label>Descrição</label>
+      <textarea id="descricao"></textarea>
+
+      <label>Link do Discord</label>
+      <input type="text" id="discord">
+
+      <button onclick="salvarConfig()">Salvar alterações</button>
+    </section>
+
+    <section id="noticias" class="admin-card">
+      <h2>Notícias do Reino</h2>
+
+      <label>Notícia 1 - Título</label>
+      <input type="text" id="noticia1Titulo">
+
+      <label>Notícia 1 - Texto</label>
+      <textarea id="noticia1Texto"></textarea>
+
+      <label>Notícia 2 - Título</label>
+      <input type="text" id="noticia2Titulo">
+
+      <label>Notícia 2 - Texto</label>
+      <textarea id="noticia2Texto"></textarea>
+
+      <label>Notícia 3 - Título</label>
+      <input type="text" id="noticia3Titulo">
+
+      <label>Notícia 3 - Texto</label>
+      <textarea id="noticia3Texto"></textarea>
+
+      <button onclick="salvarConfig()">Salvar notícias</button>
+    </section>
+
+    <section id="eventos" class="admin-card">
+      <h2>Eventos</h2>
+
+      <label>Evento principal</label>
+      <input type="text" id="eventoTitulo">
+
+      <label>Descrição do evento</label>
+      <textarea id="eventoDescricao"></textarea>
+
+      <label>Data do evento</label>
+      <input type="text" id="eventoData">
+
+      <button onclick="salvarConfig()">Salvar evento</button>
+    </section>
+
+    <section id="loja" class="admin-card">
+      <h2>Lojinha</h2>
+
+      <label>Item 1 - Nome</label>
+      <input type="text" id="item1Nome">
+
+      <label>Item 1 - Preço</label>
+      <input type="text" id="item1Preco">
+
+      <label>Item 2 - Nome</label>
+      <input type="text" id="item2Nome">
+
+      <label>Item 2 - Preço</label>
+      <input type="text" id="item2Preco">
+
+      <button onclick="salvarConfig()">Salvar lojinha</button>
+    </section>
+
+  </main>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>
